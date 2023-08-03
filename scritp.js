@@ -1,5 +1,6 @@
 let serial;
 let latestData = "waiting for data";
+let data="";
 
 function setup() {
  createCanvas(windowWidth, windowHeight);
@@ -7,7 +8,7 @@ function setup() {
  serial = new p5.SerialPort();
 
  serial.list();
- serial.open('/dev/tty.usbmodem1101');
+ serial.open('/dev/tty.usbmodem1301');
 
  serial.on('connected', serverConnected);
 
@@ -51,7 +52,7 @@ function gotData() {
  let currentString = serial.readLine();
   trim(currentString);
  if (!currentString) return;
- console.log(currentString);
+ console.log("data received "+currentString);
  latestData = currentString;
 }
 
@@ -59,11 +60,4 @@ function draw() {
  background(255,255,255);
  fill(0,0,0);
  text(latestData, 10, 10);
- // Polling method
- /*
- if (serial.available() > 0) {
-  let data = serial.read();
-  ellipse(50,50,data,data);
- }
- */
 }
