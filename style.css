@@ -1,8 +1,8 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
-  canvas {
-    display: block;
-  }
-  
+ body {
+  margin: 0;
+  padding: 0;
+  color: rgb(243, 240, 240);
+  background-color: black;
+}
+
+

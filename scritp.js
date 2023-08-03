@@ -1,3 +1,4 @@
+
 let serial;
 let latestData = "waiting for data";
 let data="";
@@ -8,6 +9,8 @@ function setup() {
  serial = new p5.SerialPort();
 
  serial.list();
+ //serial.open('/dev/tty.HC-05');
+// serial.open('/dev/tty.Bluetooth-Incoming-Port');
  serial.open('/dev/tty.usbmodem1301');
 
  serial.on('connected', serverConnected);
@@ -52,12 +55,14 @@ function gotData() {
  let currentString = serial.readLine();
   trim(currentString);
  if (!currentString) return;
- console.log("data received "+currentString);
+
  latestData = currentString;
+ data = currentString;
+console.log(data)
 }
 
 function draw() {
- background(255,255,255);
- fill(0,0,0);
+ background(0,0,0);
+ fill(255,255,255);
  text(latestData, 10, 10);
 }
