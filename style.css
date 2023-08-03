@@ -1,53 +1,8 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
-    background-image: "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2013/11/Wallpaper-Monta%C3%B1as.jpg?fit=1200%2C800&quality=50&strip=all&ssl=1";
-    background-color: aqua;
-    background-size: cover; /* Ajustar imagen al tamaño de la ventana */
-}
-
-.container {
-    display: flex; /* Utilizar el modelo flexbox para alinear los divs */
-    justify-content: space-around; /* Espacio equitativo entre los divs */
-    align-items: center; /* Alinear verticalmente los divs en el centro */
-    height: 100vh; /* Tamaño del contenedor al 100% de la altura de la ventana */
-}
-
-.left-div,
-.right-div {
-    width: 45%; /* Ancho de cada div (ajustable según tus necesidades) */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo del div con transparencia */
-}
-
-.left-div {
-    /* Estilos adicionales para el div izquierdo */
-    border-right: 1px solid #000; /* Borde derecho para separar los divs */
-}
-
-.right-div {
-    /* Estilos adicionales para el div derecho */
-    border-left: 1px solid #000; /* Borde izquierdo para separar los divs */
-}
-
-.knob-container {
-    width: 200px;
-    height: 200px;
-    border: 10px solid #333;
-    border-radius: 50%;
-    background-color: #ddd;
-    position: relative;
-    cursor: pointer;
-}
-
-.knob {
-    width: 50px;
-    height: 50px;
-    background-color: #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
+  }
+  canvas {
+    display: block;
+  }
+  
