@@ -61,14 +61,10 @@ function gotData() {
 
 }
 
-function draw() {
-    let valorInicial = latestData;
-    let valorMapeado = map(valorInicial, 0, 1023, 0, 999);
-    background(0, 0, 0);
-    fill(mouseX, mouseY, valorMapeado);
-    text(latestData, 10, 20);
-    ellipse(mouseX, mouseY, valorMapeado, valorMapeado);
-    rect(mouseY,mouseX,valorMapeado,100)
+const fontSizeSlider = document.getElementById('font-size-slider');
+const sampleText = document.getElementById('sample-text');
 
-
-}
+fontSizeSlider.addEventListener('input', () => {
+    const fontSize = fontSizeSlider.value + 'px';
+    sampleText.style.fontSize = fontSize;
+});
