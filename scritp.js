@@ -67,7 +67,7 @@ function gotData() {
 
 function draw() {
     let valorInicial = latestData;
-    let valorMapeado = map(valorInicial, 0, 1023, 0, 999);
+    let valorMapeado = map(valorInicial, 0, 1023, 0, 255);
     background(0, 0, 0);
     fill(mouseX, mouseY, valorMapeado);
     text(latestData, 10, 20);
