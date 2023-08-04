@@ -10,8 +10,6 @@ function setup() {
     serial = new p5.SerialPort();
 
     serial.list();
-    //serial.open('/dev/tty.HC-05');
-    // serial.open('/dev/tty.Bluetooth-Incoming-Port');
     serial.open('/dev/tty.usbmodem1401');
 
     serial.on('connected', serverConnected);
@@ -61,10 +59,14 @@ function gotData() {
 
 }
 
-const fontSizeSlider = document.getElementById('font-size-slider');
-const sampleText = document.getElementById('sample-text');
+function draw() {
+    let valorInicial = latestData;
+    let valorMapeado = map(valorInicial, 0, 1023, 0, 999);
+    background(0, 0, 0);
+    fill(mouseX, mouseY, valorMapeado);
+    text(latestData, 10, 20);
+    ellipse(mouseX, mouseY, valorMapeado, valorMapeado);
+    rect(mouseY,mouseX,valorMapeado,100)
 
-fontSizeSlider.addEventListener('input', () => {
-    const fontSize = fontSizeSlider.value + 'px';
-    sampleText.style.fontSize = fontSize;
-});
+
+}
