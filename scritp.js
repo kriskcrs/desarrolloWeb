@@ -57,6 +57,12 @@ function gotData() {
     latestData = currentString;
     data = currentString;
 
+    // Convertir el valor recibido a un número entre el rango deseado (por ejemplo, 10 a 40)
+    let fontValue = map(parseInt(latestData), 0, 1023, 10, 40);
+
+    // Aplicar el tamaño de fuente al párrafo de ejemplo
+    sampleText.style.fontSize = fontValue + 'px';
+
 }
 
 function draw() {
@@ -66,7 +72,15 @@ function draw() {
     fill(mouseX, mouseY, valorMapeado);
     text(latestData, 10, 20);
     ellipse(mouseX, mouseY, valorMapeado, valorMapeado);
-    rect(mouseY,mouseX,valorMapeado,100)
+   
 
 
 }
+
+const fontSizeSlider = document.getElementById('font-size-slider');
+const sampleText = document.getElementById('sample-text');
+
+fontSizeSlider.addEventListener('input', () => {
+    const fontSize = fontSizeSlider.value + 'px';
+    sampleText.style.fontSize = valorMapeado;
+});
