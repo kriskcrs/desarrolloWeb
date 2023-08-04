@@ -2,7 +2,7 @@
 let serial;
 let latestData = "waiting for data";
 let data = "";
-
+let bgColor = 0;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -67,14 +67,20 @@ function gotData() {
 
 function draw() {
     let valorInicial = latestData;
+    console.log(valorInicial);
     let valorMapeado = map(valorInicial, 0, 1023, 0, 255);
-    background(0, 0, 0);
-    fill(mouseX, mouseY, valorMapeado);
-    text(latestData, 10, 20);
+
+    // Usar las coordenadas del mouse para definir los componentes de color (rojo, verde y azul)
+    let r = mouseX % 255;
+    let g = mouseY % 255;
+    let b = valorMapeado;
+
+    // Cambiar el color de fondo
+    background(r, g, b);
+    text(valorMapeado,10,20);
+    // Cambiar el color de la elipse
+    fill(255 - r, 255 - g, 255 - b);
     ellipse(mouseX, mouseY, valorMapeado, valorMapeado);
-   
-
-
 }
 
 const fontSizeSlider = document.getElementById('font-size-slider');
