@@ -12,7 +12,7 @@ function setup() {
     serial.list();
     //serial.open('/dev/tty.HC-05');
     // serial.open('/dev/tty.Bluetooth-Incoming-Port');
-    serial.open('/dev/tty.usbmodem1301');
+    serial.open('/dev/tty.usbmodem1401');
 
     serial.on('connected', serverConnected);
 
@@ -56,7 +56,6 @@ function gotData() {
     let currentString = serial.readLine();
     trim(currentString);
     if (!currentString) return;
-
     latestData = currentString;
     data = currentString;
 
@@ -64,9 +63,12 @@ function gotData() {
 
 function draw() {
     let valorInicial = latestData;
-    let valorMapeado = map(valorInicial, 0, 1023, 0, 800);
+    let valorMapeado = map(valorInicial, 0, 1023, 0, 999);
     background(0, 0, 0);
-    fill(255, 255, 255);
-    text(latestData, 10, 10);
+    fill(mouseX, mouseY, valorMapeado);
+    text(latestData, 10, 20);
     ellipse(mouseX, mouseY, valorMapeado, valorMapeado);
+    rect(mouseY,mouseX,valorMapeado,100)
+
+
 }
